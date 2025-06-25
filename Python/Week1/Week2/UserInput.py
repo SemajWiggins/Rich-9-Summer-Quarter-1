@@ -1,2 +1,6 @@
-name = input("Hi I, I am Python! What is your name?")
-print("Hello, " +  name +", it' nice to meet you!")
+name = input("Hi, I am Python, what is your name?")
+print("Hello," +  name + ", it' nice to meet you!")
+age = input("How old are you?")
+print("I am " + age + " years old!")
+grade = input("What grade are you in?")
+print("I am," + grade + ", NICE")
