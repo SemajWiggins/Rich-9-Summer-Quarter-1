@@ -1,0 +1,1 @@
+I would like to create a buisness that makes ocean themed clothing that are sell for cheaper. It would be prioritizing the ocean fan communtiy which are people that love the ocean and its animals. The best possible legal structure for my buisness to have is the sole proprietorship because there is a certain way I would like my buisness to be.
