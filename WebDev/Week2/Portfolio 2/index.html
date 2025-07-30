@@ -1,0 +1,99 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Semaj's 2nd Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">My Portfolio</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Pictures</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="burger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </nav>
+  </header>
+
+  <section id="home" class="home-section">
+    <div class="home-content">
+      <h1>Hello, I'm Semaj Wiggins</h1>
+      <p>Hidden Genius Project Student | Rich 9 | Beginners Track</p>
+      <a href="#contact" class="btn">Contact Me</a>
+    </div>
+  </section>
+<!---------About Me--------->
+  <section id="about" class="about-section">
+    <h2>About Me</h2>
+    <p>
+      Hi, I am Semaj Wiggins! I am 15 years old and Sophmore at Pinole Valley High School, a Rich 9 student in the Hidden Genius project, and this is my portfolio! I hope you like it!
+    </p>
+  </section>
+
+  <section id="projects" class="projects-section">
+    <h2>Pictures</h2>
+    <div class="project-container">
+      <div class="project-card">
+        <img src="https://mail.google.com/mail/u/0?ui=2&ik=765fa3e0d6&attid=0.1&permmsgid=msg-f:1838381124120671206&th=19833de468fef3e6&view=fimg&fur=ip&permmsgid=msg-f:1838381124120671206&sz=s0-l75-ft&attbid=ANGjdJ-l8jj-uyqd3NTjyun_pqQJQpVl8eBicAAffAYa_AV98iG4nVpv0dRUcAXisca46H-M0YnYbj8nkJZUq4sngD6fh69WsJtj1KeXzT5I-KCaGrb2M2t4UxkE70c&disp=emb&realattid=4E6F5445-E765-482E-9E2D-B5F8FE29CF70&zw" alt="Project 1" />
+        <h3></h3>
+        <p>THis is me</p>
+      </div>
+      <div class="project-card">
+        <img src="https://mail.google.com/mail/u/0?ui=2&ik=765fa3e0d6&attid=0.1&permmsgid=msg-f:1838385467521583362&th=198341d7afdd4902&view=fimg&fur=ip&permmsgid=msg-f:1838385467521583362&sz=s0-l75-ft&attbid=ANGjdJ9VVHUwnc5egXu6Y-MLbsskr5QsrNr0lWITAZ0Ag60m8CLtcWjV92NUSUrWPHSZzftW_tHHojIKjrJmUZJThzJpISlsbguS-0N1wYUo48mPMxdoU3YCLnSus18&disp=emb&realattid=C35304D3-B245-48C7-A6DB-162DEDF7CCD6&zw" alt="Project 2" />
+        <h3></h3>
+        <p></p>
+      </div>
+      <div class="project-card">
+        <img src="https://mail.google.com/mail/u/0?ui=2&ik=765fa3e0d6&attid=0.1&permmsgid=msg-f:1838470134753075647&th=19838ed8d01f21bf&view=fimg&fur=ip&permmsgid=msg-f:1838470134753075647&sz=s0-l75-ft&attbid=ANGjdJ8Ppr5UnXawpqyS_CLtKvnei2cYzjBp9Ieg8aitnnR0OfdwY6VCYl8QTnaEKcpZfPDiCZTX6k6_U9AjNMFwODvIzrkf-g5FNWoWMG88NhbnJgW1rGRB8rGUOWs&disp=emb&realattid=97ECE69B-7F59-4F39-A492-F2314FEE1896&zw" alt="Project 3" />
+        <h3></h3>
+        <p></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <h2>Contact Me</h2>
+    <form name="submit-to-google-sheet">
+      <input type="text" name="Name" placeholder="Your Name" required />
+      <input type="email" name="Email" placeholder="Your Email" required />
+      <textarea name="Message" rows="6" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn bt2">Send</button>
+    </form>
+    <span id="msg"></span>
+  </section>
+
+  <footer>
+    <p>Copyright @ Semaj | Portfolio Website</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbzv7b3X2G6ebp7X5ox3rsncBCMdIVuZMa2ppDpWytm07HyW_EtfjYaKc8Pj3UfA-PvU/exec'
+  const form = document.forms['submit-to-google-sheet']
+  const msg = document.getElementById("msg")
+
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        msg.innerHTML = "Message Sent Successfully!"
+        setTimeout(function(){
+          msg.innerHTML = ""
+        },5000)
+        form.reset()
+      })
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
+</body>
+</html>
