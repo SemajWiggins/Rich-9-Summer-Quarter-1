@@ -90,11 +90,36 @@ def on_key_down(key):
         MovePlayer(1, 0) # Player moves right one on the grid
     elif key == keys.DOWN:
         MovePlayer(0, 1) # Player moves down one on the grid
-######################## 
-
+######################## s
 ##### 1.7, 3.0 #########
 # This function creates an actor object from the Actor class to represent the player & keys
 def SetupGame():
+    global player # Define player as a global var that can be accesed anywhere in your code
+    global keysToCollect # A var to store all the keys the player needs to collect
+    player = Actor("player", anchor=("left", "top")) # Create a new Anchor & set its anchor
+    keysToCollect = []    
+    for y in range(GRID_HEIGHT): # Loop over each grid position 
+        for x in range(GRID_WIDTH):
+            square = MAP[y][x] # Extracts the character from the MAP variable 
+            if square == "P": # Checks if the grid position is the player
+                player.pos = GetScreenCoords(x, y) # Set up the position of the player
+            elif square == "K":
+                # Create an actor for that key
+                key = Actor("key", anchor=("left", "top"))
+                # Set the key's position to this grid location
+                key.pos = GetScreenCoords(x, y)
+                keysToCollect.append(key)
+###########################
+
+######## 1.8, 3.1 #########
+def DrawActors():
+    player.draw()
+    for key in keysToCollect:
+        key.draw()
+###########################
+
+########## 3.5 ############
+def 
 
 
 # Start the Pygame
